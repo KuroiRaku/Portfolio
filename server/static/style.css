@@ -1,0 +1,95 @@
+
+.mynav {
+    min-height: 5em;
+    font-size: 1.25em;
+    background-color: black;
+    position: relative;
+}
+
+.navgroup {
+    min-width: 60%;
+    max-width: 80%;
+}
+
+.navlink {
+    color: white;
+    font-weight: bolder;
+    margin-left: 3em;
+    margin-right: 3em;
+    text-align: center;
+}
+
+nav .navgroup .navlink:hover {
+    color: gray;
+}
+
+.name {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    border: 5px solid black;
+    padding: 0.5em;
+}
+
+.mycard {
+    margin: 1em;
+    max-width: 15em;
+}
+
+.myfoot {
+    color: white;
+}
+
+.copyright {
+    font-size: 0.8em;
+    margin: 1em;
+}
+
+.abandoned {
+    color: red;
+}
+
+.myicons i {
+    font-size: 3em;
+    color: black;
+    margin: 0.5em;
+}
+
+.fixed {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+}
+
+.fixed a {
+    margin: 0.1em;
+}
+
+.form-container {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.login-form {
+    margin-top: 1em;
+}
+
+.error-container {
+    margin: 3em;
+}
+
+.fade-fast {
+    opacity: 1;
+    transition: opacity .5s ease;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+@media screen and (max-width: 767px) {
+    .fixed {
+        display: flex;
+        flex-direction: column;
+    }
+}
