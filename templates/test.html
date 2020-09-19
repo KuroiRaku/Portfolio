@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block bodyblock %}
+
+<form method="POST">
+{{ form.hidden_tag() }}
+
+{{ wtf.form_field(form.name) }}
+{{ wtf.form_field(form.submit) }}
+
+</form>
+{% endblock %}

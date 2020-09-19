@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block bodyblock %}
+
+
+<div class="jumbotron d-flex justify-content-center">
+    <h1 class="name">Le Cherng Lee</h1>
+</div>
+<div class="card d-flex align-items-center">
+    <div class="card-body">
+        <h3>Le Cherng Lee</h3>
+        <h6>  <a href="{{ url_for('main.home_web_dev') }}" style='font-size:48px; color:red'>Web Developer </a>|| <a href="{{ url_for('main.home_game_dev') }}" style='font-size:48px; color:red'> Game Developer </a> </h6>
+
+        <div class= "web">
+        <h5 class="card-title">Python | Flask | SQLAlchemy | HTML5 | CSS | JavaScript | JQuery | Java | C# | QT</h5>
+        <p></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -11,7 +11,7 @@
             <div class="card mycard">
                 <img
                     class="card-img-top"
-                    src="{{ url_for('images', filename=item.imgfile, width=300) }}"
+                    src="{{ url_for('static', filename=item.imgfile, width=300) }}"
                     alt="Card image cap"
                 >
                 <div class="card-body">
@@ -21,14 +21,14 @@
                     {% endif %}
                     <a href="{{ paths['detail'] }}/{{ item.title }}" class="btn btn-secondary">
                         <i class="fas fa-arrow-right"></i> Go</a>
-                    {% if current_user.is_authenticated %}
+
                         <a href="{{ paths['edit'] }}/{{ item.title }}" class="btn btn-primary">
                             <i class="fas fa-edit"></i></a>
                         <a href="{{ paths['delete'] }}/{{ item.title }}" class="btn btn-danger delete-btn">
                             <i class="fas fa-trash-alt"></i></a>
                         <a href="{{ paths['moveup'] }}/{{ item.index }}" class="btn btn-dark">
                             <i class="fas fa-angle-up"></i></a>
-                    {% endif %}
+
                 </div>
             </div>
         {% endfor %}

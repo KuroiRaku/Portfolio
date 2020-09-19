@@ -1,8 +1,9 @@
 import sys
+import models
 from getpass import getpass
 from werkzeug.security import generate_password_hash
-from server import create_app, db
-from server.models import User
+from __init__ import create_app, db
+from models import User
 
 username = input("Enter your username: ")
 new_password = getpass("Enter a new password: ")

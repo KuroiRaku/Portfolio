@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block bodyblock %}
+<div class="container d-flex justify-content-center">
+    <div class="form-container forms">
+        <h3>{{ title }}:</h3>
+        <form method="POST" enctype=multipart/form-data>
+            {{ form.hidden_tag() }}
+
+            {% if new %}
+
+            {{ wtf.form_field(form.title) }}
+
+            {{ wtf.form_field(form.website) }}
+
+            {{ wtf.form_field(form.github_url) }}
+
+            {{ wtf.form_field(form.description) }}
+
+            {{ wtf.form_field(form.long_desc) }}
+
+            {{ wtf.form_field(form.is_game) }}
+
+            {{ wtf.form_field(form.image) }}
+            <div class="d-flex justify-content-between align-items-center">
+
+            {{wtf.form_field(form.submit)}}
+            </div>
+            {% endif %}
+            >
+        </form>
+        {% if form.errors %}
+            {% for error in form.errors %}
+                <div class="abandoned">{{ error }}</div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

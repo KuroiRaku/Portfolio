@@ -36,3 +36,21 @@
     });
 
 })();
+
+function toggle_display() {
+  var web_dev = document.getElementById("web");
+  var web_dev = document.getElementById("web_button");
+  var game_dev_button = document.getElementById("game_dev");
+  var web_dev_button = document.getElementById("game_button");
+  if (web_dev.style.display === "none") {
+    web_dev.style.display = "block";
+    game_dev.style.display = "none";
+    game_dev_button.style.backgroundColor ="#e7e7e7";
+    web_dev_button.style.backgroundColor = "#4CAF50";
+  } else {
+    web_dev.style.display = "none";
+    game_dev.style.display = "block";
+    game_dev_button.style.backgroundColor ="#dddddd";
+    web_dev_button.style.backgroundColor = "#4CAF50;";
+  }
+}

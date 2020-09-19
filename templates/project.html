@@ -4,15 +4,12 @@
 <div class="card d-flex align-items-center">
     <img
         class="card-img-top mycard"
-        src="{{ url_for('images', filename=project.imgfile, width=300) }}"
+        src="{{ url_for('static', filename=project.imgfile, width=300) }}"
         alt="Card image cap">
     <div class="card-body">
         <h5 class="card-title">{{ project.title|replace("-", " ") }}</h5>
         <p class="card-text">{{ project.long_desc }}</p>
 
-        {% if project.abandoned %}
-            <p class="abandoned">** Abandoned</p>
-        {% endif %}
 
         <div class="d-flex flex-wrap">
             {% if project.website %}

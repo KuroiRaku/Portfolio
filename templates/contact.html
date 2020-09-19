@@ -4,18 +4,30 @@
 <div class="card d-flex align-items-center">
     <img
         class="card-img-top mycard"
-        src="{{ url_for('images', filename='head.jpg', width=400) }}"
+        src="{{ url_for('static', filename='images/head.jpg', width=400) }}"
         alt="Card image cap">
     <div class="card-body">
-        <h3>Marc D. Wood</h3>
+        <h3>Le Cherng Lee</h3>
         <h5 class="card-title">Contact Info:</h5>
         <p class="card-text d-flex justify-content-center flex-wrap myicons">
             <a href="mailto:{{ contact.email }}"><i class="fas fa-envelope-square"></i></a>
-            <a href="{{ contact.angellist }}" target="_blank"><i class="fab fa-angellist"></i></a>
             <a href="{{ contact.linkedin }}" target="_blank"><i class="fab fa-linkedin"></i></a>
             <a href="{{ contact.github }}" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="{{ contact.twitter }}" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href='#' onclick='copy_text();' ><i class="fab fa-discord"></i></a>
         </p>
     </div>
 </div>
+
+<script>
+  function copy_text() {
+    /* Get the text field */
+    var copyText = "{{contact.discord}}";
+
+
+  navigator.clipboard.writeText(copyText);
+
+  /* Alert the copied text */
+  alert("Copied the text: " + copyText.value);
+}
+</script>
 {% endblock %}

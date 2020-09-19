@@ -3,10 +3,9 @@
 {% block bodyblock %}
 <div class="d-flex flex-column align-items-center error-container">
     <img
-        class="mycard"
-        src="{{ url_for('images', filename='unicorn.jpg', width=400) }}"
-        alt="Unicorn">
-    <div>
+        src="{{ url_for('static', filename='images/no_idea.jpg') }}"
+        alt="Error Image">
+    <div class="error-container">
         <h3>Error ({{ status }})</h3>
         <p>{{ error }}</p>
     </div>

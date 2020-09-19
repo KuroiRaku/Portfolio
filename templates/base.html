@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+{% import "bootstrap/wtf.html" as wtf %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>{{ title|replace("-", " ") }} - Le Cherng</title>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+            integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+            crossorigin="anonymous">
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+            integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+            crossorigin="anonymous">
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+      {% if is_web %}
+      <style type= "text/css">
+
+        body
+        {
+      			background-image: url({{url_for('static',filename='images/background_pics.png')}});
+      			background-size: cover;
+      			background-attachment: fixed;
+          }
+
+      </style>
+
+        <div class="container">
+            <nav class="nav justify-content-center align-items-center mynav">
+                <div class="d-flex justify-content-around flex-wrap navgroup">
+                    <a class="nav-link active navlink" href="{{ url_for('main.home_web_dev') }}">Home</a>
+                    <a class="nav-link navlink" href="{{ url_for('main._portfolio') }}">Portfolio</a>
+                    <a class="nav-link navlink" href="{{ url_for('main.contact_view') }}">Contact</a>
+                </div>
+            </nav>
+      {% else %}
+      <style type= "text/css">
+      		body
+      		{
+      			margin:0;
+      			background-image: url({{url_for('static',filename='images/background_pics_game_dev.png')}});
+      			background-size: cover;
+      			background-attachment: fixed;
+      		}
+        </style>
+
+                <div class="container">
+                    <nav class="nav justify-content-center align-items-center mynav">
+                        <div class="d-flex justify-content-around flex-wrap navgroup">
+                            <a class="nav-link active navlink" href="{{ url_for('main.home_game_dev') }}">Home</a>
+                            <a class="nav-link navlink" href="{{ url_for('main._portfolio_game') }}">Portfolio</a>
+                            <a class="nav-link navlink" href="{{ url_for('main.contact_view') }}">Contact</a>
+                        </div>
+                    </nav>
+      <audio id="audio" preload="auto" tabindex="0" controls="" type="audio/mpeg" autoplay loop>
+        <source type="audio/mp3" src="{{url_for('static',filename='mp3/Home.mp3')}}">
+        Sorry, your browser does not support HTML5 audio.
+    	</audio>
+    	<ul id="playlist">
+        	<li class="active"><div class="column1">
+        	<a href="{{url_for('static',filename='mp3/Home.mp3')}}">Home</a></div>
+        	<div class="column2">
+        	</div>
+        	</li>
+        	<li><a href="{{url_for('static',filename='mp3/Haru.mp3')}}">Haru</a></li>
+          <li><a href="{{url_for('static',filename='mp3/Haru.mp3')}}">Haru</a></li>
+    	</ul>
+			<script type="text/javascript" src= "{{url_for('static',filename='musicPlayer.js')}}"></script>
+
+      {% endif %}
+                <!-- Modal -->
+
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            {% block bodyblock %}
+            {% endblock %}
+
+        </div>
+
+        <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+        <script
+            src="{{ url_for('static', filename='script.js') }}"></script>
+    </body>
+
+{% block fotter %}
+  <footer>
+  <a href="{{ url_for('main._portfolio') }}">Show All Projects</a></li>
+  </footer>
+{% endblock %}
+</html>
